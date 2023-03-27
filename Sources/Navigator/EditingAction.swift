@@ -17,11 +17,14 @@ public struct EditingAction: Hashable {
 
     /// Default editing actions enabled in the navigator.
     public static var defaultActions: [EditingAction] {
-        [copy, share, lookup, translate]
+        // ***Wordrobe hack***: Disable copy and share
+        //[copy, share, lookup, translate]
+        [lookup, translate]
     }
 
     /// Copy the text selection.
-    public static let copy = EditingAction(kind: .native("copy:"))
+    // ***Wordrobe hack***: Disable copy and share
+    //public static let copy = EditingAction(kind: .native("copy:"))
 
     /// Look up the text selection in the dictionary.
     public static let lookup = EditingAction(kind: .native("_lookup:"))
@@ -33,7 +36,8 @@ public struct EditingAction: Hashable {
     ///
     /// Implementation detail: We use a custom share action to make sure the user is allowed to share the content. We
     /// can't override the native _share: action since it is private.
-    public static let share = EditingAction(title: R2NavigatorLocalizedString("EditingAction.share"), action: #selector(EPUBSpreadView.shareSelection))
+    // ***Wordrobe hack***: Disable copy and share
+    //public static let share = EditingAction(title: R2NavigatorLocalizedString("EditingAction.share"), action: #selector(EPUBSpreadView.shareSelection))
 
     /// Create a custom editing action.
     ///
