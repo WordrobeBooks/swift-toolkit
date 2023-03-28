@@ -142,7 +142,7 @@ final class EditingActionsController {
 
     /// Returns whether the copy interaction is at all allowed. It doesn't guarantee that the next copy action will be valid, if the license cancels it.
     var canCopy: Bool {
-        canPerformAction(.copy) && rights.canCopy
+        canPerformAction(.copy) && false //rights.canCopy
     }
 
     /// Copies the authorized portion of the selection text into the pasteboard.
